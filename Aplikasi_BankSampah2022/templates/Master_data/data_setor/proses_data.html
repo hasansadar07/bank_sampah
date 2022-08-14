@@ -1,0 +1,108 @@
+{% include "head_atas.html" %}
+{% include "sub_menu.html" %}
+<script type="text/javascript">
+  function sum(){
+    var harga=document.getElementById('harga').value;
+    var berat=document.getElementById('berat').value;
+    var result =(parseInt(harga) * parseInt(berat));
+    if (!isNaN(result)){
+      document.getElementById('total').value = result;
+    }
+  }
+
+</script>
+<form method="post" class="form-horizontal tasi-form" >
+  {% csrf_token %}
+  <section id="main-content">
+      <section class="wrapper site-min-height">
+        <h3><i class="fa fa-angle-right"></i> INPUT DATA SETOR BANK SAMPAH</h3>
+        <div class="row mt">
+          <div class="col-lg-12">
+            <div class="row content-panel">
+              <div class="col-md-6 profile-text mt mb centered">
+                <div class=" hidden-sm hidden-xs">                 
+
+                <!-- start -->
+                  <div class="form-group has-success">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Kode Setor</label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control" id="inputSuccess" name="kode_setor" required value="NT-{{kode_data}}" readonly>
+                  </div>
+                </div>
+                <div class="form-group has-success">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Nama Setor</label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control" id="inputSuccess" name="nama_setor" required placeholder="Enter Nama Setor">
+                  </div>
+                </div>
+                <div class="form-group has-success">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Jenis Sampah</label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control" id="inputSuccess" name="jenis_sampah" readonly value="{{jenis_sampah1}}" readonly>
+                  </div>
+                </div>
+                <div class="form-group has-success">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Berat (Kg)</label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control" id="berat" name="berat" required placeholder="Enter Berat (Kg) Sampah" onkeyup="sum();">
+                  </div>
+                </div>
+                <div class="form-group has-success">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Harga</label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control" id="harga" name="harga" required placeholder="Enter Harga" onkeyup="sum();" value="{{harga1}}" readonly>
+                  </div>
+                </div>
+                <div class="form-group has-success">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Total</label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control" id="total" name="total" required placeholder="0" onkeyup="sum();" checked="on" readonly>
+                  </div>
+                </div>
+                <div class="form-group has-success">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Tanggal Timbangan</label>
+                  <div class="col-lg-10">
+                    <input type="date" class="form-control" id="inputSuccess" name="tanggal" required>
+                  </div>
+                </div>
+                <!-- end -->
+
+                </div>
+              </div>
+              <!-- /col-md-4 -->
+              <div class="col-md-3 profile-text">
+                <h3>{{nama_nasabah}}</h3>
+                <h6>{{alamat}}</h6>
+                <p>Nasabah yang sudah terdaftar diwajibkan untuk memberikan informasi-informasi terhadap Bank Sampah yang dimiliki, sehingga dapat diketahui dan akan dilakukan pengolahan Bank Sampah yang dimiliki para nasabah..</p>
+                <br>                
+              </div>
+              <!-- /col-md-4 -->
+              <div class="col-md-3 centered">
+                <div class="profile-pic">
+                  <p><img src="/static/Images/nasabah.png" class="img-circle"></p>
+                  <p>
+                    <button class="btn btn-theme"><i class="fa fa-check"></i> Identitas Nasabah</button>
+                  </p>
+                </div>
+              </div>
+              <hr>
+            <div class="form-group">
+                    <div class="col-lg-offset-2 col-lg-10">
+                      <button class="btn btn-theme" type="submit"><i class="fa fa-save"></i> Submit</button>
+                      <button class="btn btn-warning" type="reset"><i class="fa fa-refresh"></i> Reset</button>
+                      <a href="{% url 'setor' %}" class="btn btn-danger"><i class="fa fa-ban"></i> Cancel</a>
+                    </div>
+                  </div>              
+              <!-- /col-md-4 -->
+            </div>
+ <input type="hidden" name="id_nasabah" value="{{id_nasabah}}">
+ <input type="hidden" name="nama_nasabah" value="{{nama_nasabah}}"> 
+ <input type="hidden" name="telp" value="{{telp}}">
+ <input type="hidden" name="alamat" value="{{alamat}}">            
+
+</div>
+</div>
+</section>
+</section>            
+</form>
+{% include "head_bawah.html" %}

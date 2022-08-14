@@ -1,0 +1,66 @@
+
+    <!--sidebar start-->
+    <aside>
+      <div id="sidebar" class="nav-collapse">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu" id="nav-accordion">
+          <p class="centered"><a href="profile.html"><img src="/static/icon/admin.png" class="img-circle" width="80"></a></p>
+          <h5 class="centered">{{user}}</h5>
+          <li class="mt">
+            <a href="{% url 'Home' %}">
+              <i class="fa fa-home"></i>
+              <span>Home</span>
+              </a>
+          </li>
+          <li class="mt">
+            <a href="{% url 'jual' %}">
+              <i class="fa fa-tasks"></i>
+              <span>Form Jual Sampah</span>
+              </a>
+          </li>
+          <li class="mt">
+            <a href="{% url 'pembayaran' %}">
+              <i class="fa fa-tasks"></i>
+              <span>Form Pembayaran Sampah</span>
+              </a>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-desktop"></i>
+              <span>Master Data Sampah</span>
+              <b class="arrow fa fa-angle-down"></b>
+              </a>
+            <ul class="sub">
+              <li><a href="{% url 'barang' %}"><i class="fa fa-arrow-right"></i> Form Barang (Sampah)</a></li>
+              <li><a href="{% url 'jenis' %}"><i class="fa fa-arrow-right"></i> Form Jenis (Sampah)</a></li>
+            </ul>
+          </li>
+
+          <li class="mt">
+            <a href="{% url 'nasabah' %}">
+              <i class="fa fa-user"></i>
+              <span>Form Nasabah (Sampah)</span>
+              </a>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-desktop"></i>
+              <span>Master (Setor) Sampah</span>
+              <b class="arrow fa fa-angle-down"></b>
+              </a>
+            <ul class="sub">
+              <li><a href="{% url 'setor' %}"><i class="fa fa-arrow-right"></i> Form Setor (Sampah)</a></li>
+              <li><a href="{% url 'tarik' %}"><i class="fa fa-arrow-right"></i> Form Tarik (Sampah)</a></li>
+            </ul>
+          </li>
+          <li class="mt">
+            <a href="{% url 'menu_lp' %}">
+              <i class="fa fa-print"></i>
+              <span>Menu Laporan (Sampah)</span>
+              </a>
+          </li>
+        </ul>
+        <!-- sidebar menu end-->
+      </div>
+    </aside>
+    <!--sidebar end-->

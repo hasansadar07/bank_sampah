@@ -1,0 +1,107 @@
+{% include "head_atas.html" %}
+{% include "sub_menu.html" %}
+<script type="text/javascript">
+  function sum(){
+    var harga=document.getElementById('harga').value;
+    var jumlah=document.getElementById('jumlah').value;
+    var result =(parseInt(harga) * parseInt(jumlah));
+    if (!isNaN(result)){
+      document.getElementById('total').value = result;
+    }
+  }
+</script>
+    <section id="main-content">
+      <section class="wrapper">
+        <h3><i class="fa fa-angle-right"></i> FORM EDIT PENJUALAN BANK SAMPAH</h3>
+        <div class="row mb">
+  <!-- row -->
+  <div class="row mt">
+          <div class="col-lg-12">
+            <div class="form-panel">
+              <h4 class="mb"><i class="fa fa-angle-right"></i> Input Data Penjualan (BANK SAMPAH)</h4>
+              <hr>
+              
+
+              <form class="form-horizontal tasi-form" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="hidden" class="form-control" id="inputSuccess" name="kode_barang" required value="{{edit_data.kode_barang}}">
+                <div class="form-group has-success">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Kode Jual</label>
+                  <div class="col-lg-10">
+                    <input type="hidden" class="form-control" id="inputSuccess" name="jenis_sampah" required value="{{edit_data.jenis_sampah}}">
+                    <input type="text" class="form-control" id="inputSuccess" name="kode_jual" required  value="Nota-{{kode_data}}" readonly>
+
+                  </div>
+                </div>
+                <div class="form-group has-success">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Nama Barang</label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control" id="inputSuccess" name="nama_barang" required value="{{edit_data.nama_barang}}">
+                  </div>
+                </div>
+                <div class="form-group has-success">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Harga</label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control" id="harga" onkeyup="sum();" readonly name="harga" required placeholder="Enter Harga" value="{{edit_data.harga}}">
+                  </div>
+                </div>
+
+                <div class="form-group has-success">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Jumlah Sampah</label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control" id="jumlah" onkeyup="sum();" name="jumlah" required value="{{edit_data.jumlah}}">
+                  </div>
+                </div>
+                <div class="form-group has-success">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Total</label>
+                  <div class="col-lg-10">
+                    <input type="text" class="form-control" id="total" onkeyup="sum();" name="total" readonly value="{{edit_data.total}}">
+                  </div>
+                </div>
+                <div class="form-group has-success">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Tanggal</label>
+                  <div class="col-lg-10">
+                    <input type="date" class="form-control" id="inputSuccess" name="tanggal" required value="{{edit_data.tanggal}}">
+                  </div>
+                </div>
+                
+                <div class="form-group has-success">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Bulan</label>
+                  <div class="col-lg-10">
+                    <select name="bulan" class="form-control" required>
+                      <option>{{edit_data.bulan}}</option>
+                      <option value="">--Bulan--</option>
+                      <option>Agustus</option>
+                    </select>
+                   
+                  </div>
+                </div>
+                <div class="form-group has-success">
+                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Tahun</label>
+                  <div class="col-lg-10">
+                    <select name="tahun" class="form-control" required>
+                      <option>{{edit_data.tahun}}</option>
+                      <option value="">--Tahun--</option>
+                      <option>2022</option>
+                    </select>
+                   
+                  </div>
+                </div>
+        <div class="form-group">
+                    <div class="col-lg-offset-2 col-lg-10">
+                      <button class="btn btn-theme" type="submit"><i class="fa fa-save"></i> Submit</button>
+                      <button class="btn btn-warning" type="reset"><i class="fa fa-refresh"></i> Reset</button>
+                      <a href="{% url 'jual' %}" class="btn btn-danger"><i class="fa fa-ban"></i> Cancel</a>
+                    </div>
+                  </div>
+      </form>
+
+
+    </div>
+  </div>
+</div>
+<!-- row -->
+</div>
+</section>
+</section>
+{% include "head_bawah.html" %}

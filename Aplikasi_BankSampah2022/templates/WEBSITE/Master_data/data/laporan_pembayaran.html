@@ -1,0 +1,80 @@
+{% include 'WEBSITE/Master_data/atas.html' %}
+{% include 'WEBSITE/Master_data/sub.html' %}  
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">
+          <img src="/static/icon/tempatsampah.JFIF" style="width: 60px">
+        SAMPAH YANG LAKU DI BANK SAMPAH KAMI</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group mr-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary">
+              <img src="/static/icon/anchor.png">
+
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <h4>
+        <div class="adv-table">
+              <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Nota Transaksi</th>
+                    <th>Jenis Sampah</th>
+                    <th>Nama Nasabah</th>
+                    <th>Nama Barang</th>
+                    <th>Harga</th>
+                    <th>Jumlah</th>
+                    <th>Total</th>
+                    <th>Bayar</th>
+                    <th>Kembalian</th>
+                    <th>Tanggal</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+          {% for tampil in data %}
+            <tr>
+              <td>{{forloop.counter}}</td>
+              <td>
+                <form method="get" action="{% url 'nota_pembayaran' %}" target="_blank">
+                  <input type="hidden" value="{{tampil.id}}" name="cari_data">
+                  <button type="submit" class="btn btn-xs btn-info">
+                    <i class="fa fa-print"></i> <i class="fa fa-file"></i>
+                    Cetak Nota
+                  </button>
+                </form>
+              </td>
+              <td>{{tampil.jenis_sampah}}</td>
+              <td>{{tampil.nama_nasabah}}</td>
+              <td>{{tampil.nama_barang}}</td>
+              <td>{{tampil.harga}}</td>
+              <td>{{tampil.jumlah}}</td>
+              <td>{{tampil.total}}</td>
+              <td>{{tampil.bayar}}</td>
+              <td>{{tampil.kembalian}}</td>
+              <td>{{tampil.tanggal}}</td>              
+<td>
+<a href="{% url 'hapus_pembayaran' tampil.id %}" class="btn btn-xs btn-danger" title="Hapus" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data')">
+      <i class="ace-icon fa fa-trash-o bigger-130"></i>
+      </a>    
+  </td>              
+            </tr>
+            {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+      </div>
+  </div>
+          <!-- page end-->
+        </div>
+        <!-- /row -->
+      </section>
+      <!-- /wrapper -->
+    </section>
+    <!-- /MAIN CONTENT -->
+    <!--main content end-->
+{% include "head_bawah.html" %}

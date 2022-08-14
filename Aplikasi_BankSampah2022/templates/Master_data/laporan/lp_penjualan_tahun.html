@@ -1,0 +1,63 @@
+<!<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Laporan</title>
+  <link href="/static/js_print/styles.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+    table {
+    border-collapse: collapse;
+    width: 100%;
+    }
+    table, th, td {
+        border: 1px solid blue;
+    }
+    td {
+    padding: 10px;
+    text-align: left;
+    }
+  </style>
+</head>
+<body>
+<div id="container">
+<div id="body"> 
+<div align="center">
+<h2>BANK SAMPAH KEDUNG ASRI</h2>
+<h3>Kec.Kotaanyar Kab.Probolinggo</h3>
+<h4><strong><u>LAPORAN DATA PENJUALAN BANK SAMPAH</u></strong></h4>
+</div>
+<table id="example1" class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Kode Jual</th>
+                    <th>Kode Barang</th>
+                    <th>Nama Barang</th>
+                    <th>Jenis Sampah</th>
+                    <th>Harga</th>
+                    <th>Jumlah</th>
+                    <th>Total</th>
+                    <th>Tanggal</th>
+                  </tr>
+                </thead>
+                <tbody>
+          {% for tampil in data %}
+            <tr>
+              <td>{{forloop.counter}}</td>
+              <td>{{tampil.kode_jual}}</td>
+              <td>{{tampil.kode_barang}}</td>
+              <td>{{tampil.nama_barang}}</td>
+              <td>{{tampil.jenis_sampah}}</td>
+              <td>{{tampil.harga}}</td>
+              <td>{{tampil.jumlah}}</td>
+              <td>{{tampil.total}}</td>              
+              <td>{{tampil.tanggal}}</td>         
+              
+            </tr>
+            {% endfor %}
+                </tbody>
+              </table>
+</div>
+</div>
+</body>
+</html>

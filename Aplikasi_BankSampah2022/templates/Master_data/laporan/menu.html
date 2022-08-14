@@ -1,0 +1,229 @@
+{% include "head_atas.html" %}
+{% include "sub_menu.html" %}
+
+    <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+        <h3><i class="fa fa-angle-right"></i> HALAMAN MENU PEMBUATAN LAPORAN</h3>
+        <div class="row mb">
+          <!-- page start-->
+          <div class="col-lg-12">
+            <div class="form-panel">
+          <div class="content-panel">
+            <div class="adv-table">
+              <table class="table">
+                <tr>
+                  <td>
+                    <img src="/static/icon/print.png">                    
+                    <label>Laporan Data Nasabah</label>
+                    <p style="font-size: 10px;">Cetak Data</p>
+                  </td>
+                  <td>
+                    <br>
+                    <i class="fa fa-hand-o-right"></i>
+                    <a href="{% url 'lp_nasabah' %}" class="btn btn-xs btn-info" target="_blank" title="Cetak Data Laporan...">
+                    <i class="fa fa-file"></i> Cetak New
+                    </a>
+                  </td>
+
+                  <td>
+                    <form method="get" action="{% url 'LP_nasabah_tanggal' %}" target="_blank">
+                      <label>Tanggal Dari</label>
+                      <input type="date" name="tanggal_dari">
+                      <label>Tanggal Sampai</label>
+                      <input type="date" name="tanggal_sampai">
+                      <button class="btn btn-xs btn-warning"><i class="fa fa-print"></i> Cetak</button>
+                    </form>
+                  </td>
+                  <td>
+                    <label>Bulan</label>
+                    <form method="get" action="{% url 'lp_nasabah_bulan' %}" target="_blank">
+                      <select name="bulan" class="form-control" required onchange="this.form.submit();">
+                      <option value="">--Bulan--</option>
+                      <option>Januari</option>
+                      <option>Februari</option>
+                      <option>Maret</option>
+                      <option>April</option>
+                      <option>Mei</option>
+                      <option>Juni</option>
+                      <option>Juli</option>
+                      <option>Agustus</option>
+                      <option>September</option>
+                      <option>Oktober</option>
+                      <option>November</option>
+                      <option>Desember</option>
+                    </select>
+                    </form>
+                  </td>
+                  <td>
+                    <label>Tahun</label>
+                    <form method="get" action="{% url 'lp_nasabah_tahun' %}" target="_blank">
+                       <select name="tahun" class="form-control" required onchange="this.form.submit();">
+                      <option value="">--Tahun--</option>
+                      <option>2017</option>
+                      <option>2018</option>
+                      <option>2019</option>
+                      <option>2020</option>
+                      <option>2021</option>
+                      <option>2022</option>
+                    </select>
+                    </form>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <img src="/static/icon/print.png">                    
+                    <label>Laporan Data Penjualan (BANK SAMPAH)</label>
+                    <p style="font-size: 10px;">Cetak Data</p>
+                  </td>
+                  <td>
+                    <br>
+                    <i class="fa fa-hand-o-right"></i>
+                    <a href="{% url 'lp_penjualan' %}" class="btn btn-xs btn-info" target="_blank" title="Cetak Data Laporan...">
+                    <i class="fa fa-file"></i> Cetak New
+                    </a>
+                  </td>
+
+                  <td>
+                    <form method="get" action="{% url 'LP_penjualan_tanggal'%}" target="_blank">
+                      <label>Tanggal Dari</label>
+                      <input type="date" name="tanggal_dari1">
+                      <label>Tanggal Sampai</label>
+                      <input type="date" name="tanggal_sampai1">
+                      <button class="btn btn-xs btn-warning"><i class="fa fa-print"></i> Cetak</button>
+                    </form>
+                  </td>
+                  <td>
+                    <label>Bulan</label>
+                    <form method="get" action="{% url 'lp_penjualan_bulan' %}" target="_blank">
+                      <select name="bulan" class="form-control" required onchange="this.form.submit();">
+                      <option value="">--Bulan--</option>
+                      <option>Januari</option>
+                      <option>Februari</option>
+                      <option>Maret</option>
+                      <option>April</option>
+                      <option>Mei</option>
+                      <option>Juni</option>
+                      <option>Juli</option>
+                      <option>Agustus</option>
+                      <option>September</option>
+                      <option>Oktober</option>
+                      <option>November</option>
+                      <option>Desember</option>
+                    </select>
+                    </form>
+                  </td>
+                  <td>
+                    <label>Tahun</label>
+                    <form method="get" action="{% url 'lp_penjualan_tahun' %}" target="_blank">
+                       <select name="tahun" class="form-control" required onchange="this.form.submit();">
+                      <option value="">--Tahun--</option>
+                       <option>2017</option>
+                      <option>2018</option>
+                      <option>2019</option>
+                      <option>2020</option>
+                      <option>2021</option>
+                      <option>2022</option>
+                    </select>
+                    </form>
+                  </td>
+                </tr>
+                <!-- <tr>
+                  <td>
+                    <img src="/static/icon/print.png">                    
+                    <label>Laporan Data Setoran (BANK SAMPAH)</label>
+                    <p style="font-size: 10px;">Cetak Data</p>
+                  </td>
+                  <td>
+                    <br>
+                    <i class="fa fa-hand-o-right"></i>
+                    <a href="{% url 'lp_setor' %}" class="btn btn-xs btn-info" target="_blank" title="Cetak Data Laporan...">
+                    <i class="fa fa-file"></i> Cetak New
+                    </a>
+                  </td>
+                </tr> -->
+                <!-- <tr>
+                  <td>
+                    <img src="/static/icon/print.png">                    
+                    <label>Laporan Data Penarikan/Penjemputan (BANK SAMPAH)</label>
+                    <p style="font-size: 10px;">Cetak Data</p>
+                  </td>
+                  <td>
+                    <br>
+                    <i class="fa fa-hand-o-right"></i>
+                    <a href="{% url 'lp_tarik' %}" class="btn btn-xs btn-info" target="_blank" title="Cetak Data Laporan...">
+                    <i class="fa fa-file"></i> Cetak New
+                    </a>
+                  </td>
+                </tr> -->
+                <tr>
+                  <td>
+                    <img src="/static/icon/print.png">                    
+                    <label>Laporan Data PEMBAYARAN</label>
+                    <p style="font-size: 10px;">Cetak Data</p>
+                  </td>
+                  <td>
+                    <br>
+                    <i class="fa fa-hand-o-right"></i>
+                    <a href="{% url 'lp_setor' %}" class="btn btn-xs btn-info" target="_blank" title="Cetak Data Laporan...">
+                    <i class="fa fa-file"></i> Cetak New
+                    </a>
+                  </td>
+                  <td>
+                    <form method="get" action="{% url 'laporan_pembayaran_tanggal' %}" target="_blank">
+                      <label>Tanggal Dari</label>
+                      <input type="date" name="tanggal_dari">
+                      <label>Tanggal Sampai</label>
+                      <input type="date" name="tanggal_sampai">
+                      <button class="btn btn-xs btn-warning"><i class="fa fa-print"></i> Cetak</button>
+                    </form>
+                  </td>
+                  <td>
+                    <label>Bulan</label>
+                    <form method="get" action="{% url 'laporan_pembayaran_bulan' %}" target="_blank" >
+                      <select name="bulan" class="form-control" required onchange="this.form.submit();">
+                      <option value="">--Bulan--</option>
+                     <option>Januari</option>
+                      <option>Februari</option>
+                      <option>Maret</option>
+                      <option>April</option>
+                      <option>Mei</option>
+                      <option>Juni</option>
+                      <option>Juli</option>
+                      <option>Agustus</option>
+                      <option>September</option>
+                      <option>Oktober</option>
+                      <option>November</option>
+                      <option>Desember</option>
+                    </select>
+                    </form>
+                  </td>
+                  <td>
+                    <label>Tahun</label>
+                    <form method="get" action="{% url 'laporan_pembayaran_tahun' %}" target="_blank" >
+                       <select name="tahun" class="form-control" required onchange="this.form.submit();">
+                      <option value="">--Tahun--</option>
+                       <option>2017</option>
+                      <option>2018</option>
+                      <option>2019</option>
+                      <option>2020</option>
+                      <option>2021</option>
+                      <option>2022</option>
+                    </select>
+                    </form>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+      </div>
+  </div>
+          <!-- page end-->
+        </div>
+        <!-- /row -->
+      </section>
+      <!-- /wrapper -->
+    </section>
+    <!-- /MAIN CONTENT -->
+    <!--main content end-->
+{% include "head_bawah.html" %}

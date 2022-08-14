@@ -1,0 +1,82 @@
+{% include "head_atas.html" %}
+{% include "sub_menu.html" %}
+{% if messages %}
+{% for info in messages %}
+<script>alert('{{info}}');location='{% url "tarik" %}';</script>
+{% endfor %}
+{% endif %}
+    <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+        <h3><i class="fa fa-angle-right"></i> FORM TABEL PENARIKAN BANK SAMPAH DI NASABAH</h3>
+        <div class="row mb">
+          <!-- page start-->
+          <div class="col-lg-12">
+            <div class="form-panel">
+          <div class="content-panel">
+            <div align="right" class="alert alert-success">
+              <b>Form data pembuatan jenis-jenis (BANK SAMPAH)..., Silakan anda tambahkan data dengan klik tombol tambah..<i class="fa fa-hand-o-right"></i></b>
+              <a href="{% url 'tambah_tarik' %}" class="btn btn-info">
+                <i class="fa fa-plus"></i> Tambah Data...
+              </a>
+            </div>
+            <hr>
+            <div class="adv-table">
+              <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Kode Tarik</th>
+                    <th>Nama Tarik</th>
+                    <th>ID Nasabah</th>
+                    <th>Nama Nasabah</th>
+                    <th>Telp</th>
+                    <th>Alamat</th>
+                    <th>Jenis Sampah</th>
+                    <th>Jumlah Tarik</th>
+                    <th>Berat</th>
+                    <th>Total</th>
+                    <th>Tanggal Tarik</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+          {% for tampil in data %}
+            <tr>
+              <td>{{forloop.counter}}</td>
+              <td>{{tampil.kode_tarik}}</td>
+              <td>{{tampil.nama_tarik}}</td>
+              <td>{{tampil.id_nasabah}}</td>
+              <td>{{tampil.nama_nasabah}}</td>
+              <td>{{tampil.telp}}</td>
+              <td>{{tampil.alamat}}</td>
+              <td>{{tampil.jenis_sampah}}</td>
+              <td>{{tampil.jumlah_tari}}</td>
+              <td>{{tampil.berat}}</td>
+              <td>{{tampil.total}}</td>
+              <td>{{tampil.tanggal}}</td>
+<td>
+<a href="{% url 'edit_tarik' tampil.id %}" class="btn btn-xs btn-success" title="Edit" onclick="return confirm('Apakah Anda Yakin Ingin Mengedit Data')">
+      <i class="ace-icon fa fa-pencil bigger-130"></i>
+      </a>
+<a href="{% url 'hapus_tarik' tampil.id %}" class="btn btn-xs btn-danger" title="Hapus" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data')">
+      <i class="ace-icon fa fa-trash-o bigger-130"></i>
+      </a>    
+  </td>              
+            </tr>
+            {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+      </div>
+  </div>
+          <!-- page end-->
+        </div>
+        <!-- /row -->
+      </section>
+      <!-- /wrapper -->
+    </section>
+    <!-- /MAIN CONTENT -->
+    <!--main content end-->
+{% include "head_bawah.html" %}

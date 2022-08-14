@@ -1,0 +1,57 @@
+{% include 'WEBSITE/Master_data/atas.html' %}
+{% if data_n %}
+{% if data %}
+
+{% for password in data %}    
+{% include 'WEBSITE/Master_data/sub.html' %}  
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">
+          <img src="/static/icon/keranjang.png" style="width: 60px">
+        PENGECEKAN ATAU PENYETORAN BANK SAMPAH</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group mr-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary">
+              <img src="/static/icon/anchor.png">
+
+            </button>
+            
+          </div>
+        </div>
+      </div>
+
+      <h2>
+        <img src="/static/Images/nasabah.png" style="width: 50px;">
+      Data Diri Nasabah</h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>Nama Lengkap</th>
+              <th>Telp</th>
+              <th>Alamat</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for tampil in data %}
+            <tr>
+              <td>{{tampil.nama_nasabah}}</td>
+              <td>{{tampil.telp}}</td>
+              <td>{{tampil.alamat}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+{% endfor %}
+
+{% else %}
+<script>alert('Maaf ID Nasabah Atau Password Anda Salah, Silakan Coba Lagi...!');location='{% url "website" %}';</script>
+{% endif %}
+{% else %}
+<script>alert('Maaf ID Nasabah Atau Password Anda Salah, Silakan Coba Lagi...!');location='{% url "website" %}';</script>
+{% endif %}
+{% include 'WEBSITE/Master_data/bawah.html' %}

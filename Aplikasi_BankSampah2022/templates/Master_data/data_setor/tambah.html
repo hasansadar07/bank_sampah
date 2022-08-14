@@ -1,0 +1,61 @@
+{% include "head_atas.html" %}
+{% include "sub_menu.html" %}
+
+    <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+        <h3><i class="fa fa-angle-right"></i> FORM PROSES SETOR BANK SAMPAH </h3>
+        <div class="row mb">
+          <!-- page start-->
+          <div class="col-lg-12">
+            <div class="form-panel">
+          <div class="content-panel">
+            <div class="adv-table">
+              <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>ID Nasabah</th>
+                    <th>Nama Nasabah</th>
+                    <th>Telp/WA</th>
+                    <th>Alamat</th>
+                    <th>Proses & Pilih Jenis Sampah</th>
+                  </tr>
+                </thead>
+                <tbody>
+          {% for tampil in data %}
+            <tr>
+              <td>{{forloop.counter}}</td>
+              <td>{{tampil.id_nasabah}}</td>
+              <td>{{tampil.nama_nasabah}}</td>
+              <td>{{tampil.telp}}</td>
+              <td>{{tampil.alamat}}</td>
+<td>
+  <form method="get" action="{% url 'proses_data1' %}">
+<select  class="form-control" id="inputSuccess" name="cari_data" required>
+  <option value="">--Select jenis--</option>
+  {% for tampil in select_jenis %}
+  <option>{{tampil.jenis_sampah}}</option>
+  {% endfor %}
+</select>
+<input type="hidden" name="cari_id_nasabah" value="{{tampil.id}}">
+<button type="submit" onclick="return confirm('Silakan Lakukan Proses Penyetoran Bank Sampah...')" class="btn btn-warning"><i class="ace-icon fa fa-pencil bigger-130"></i> Proses</button>
+</form>
+  </td>              
+            </tr>
+            {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+      </div>
+  </div>
+          <!-- page end-->
+        </div>
+        <!-- /row -->
+      </section>
+      <!-- /wrapper -->
+    </section>
+    <!-- /MAIN CONTENT -->
+    <!--main content end-->
+{% include "head_bawah.html" %}

@@ -1,0 +1,41 @@
+{% include 'WEBSITE/Master_data/atas.html' %}
+{% include 'WEBSITE/Master_data/sub.html' %}  
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">
+          <img src="/static/icon/tempatsampah.JFIF" style="width: 60px">
+        SAMPAH YANG LAKU DI BANK SAMPAH KAMI</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group mr-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary">
+              <img src="/static/icon/anchor.png">
+
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <h4>
+        <img src="" style="width: 50px;">
+      LIST DATA JENIS SAMPAH</h4><hr>
+      <div class="">
+        <table id="example" class="table table-striped table-bordered table-hover">
+                <tr>
+                    <th>Jenis Sampah</th>
+                    <th>Harga Sampah perkilo</th>
+                </tr>
+                <tbody>
+          {% for tampil in data %}
+            <tr>
+              <td>{{tampil.jenis_sampah}}</td>
+              <td>{{tampil.harga}}</td>
+             </tr>
+            {% endfor %}
+                </tbody>
+              </table>
+
+      </div>
+    </main>
+  </div>
+</div>
+{% include 'WEBSITE/Master_data/bawah.html' %}
